@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>NAVIGATOR</title>
+    <link href="y=swaphttps://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&displa" rel="stylesheet">
+
+    <style>
+        .logo {
+            width: 300px;
+            height: 300px;
+            border-radius: 150px;
+            margin-top: 200px;
+        
+         /* animação */
+            animation: girar 1s ease-out;
+        } 
+
+        @keyframes girar {
+        from {
+        transform: rotate(0deg);
+        }
+        to {
+        transform: rotate(360deg);
+           }
+        }
+
+        .a {
+            border-radius: 24px;
+            margin-left: 750px;
+        }
+        
+        .b {
+            width: 30px;
+            margin-bottom: 190px;
+        }
+
+        .c {
+            background-color: white;
+            border-radius: 24px;
+            margin-left: 930px;
+        }
+    </style>
+</head>
+<body>
+
+    <center>
+        <img src="NexusNavigatorOficialLogo.PNG" class="logo">
+    </center>
+
+    <textarea id="campo" placeholder="Pesquisar Ou Digitar URL" class="a">
+    </textarea>
+
+    <br></br>
+    
+    <a href="#" onclick="buscar()" class="c">
+        <img src="NexusNavigatorSearch.PNG" class="b">
+    </a>
+
+    <script>
+    function buscar() {
+    let texto = document.getElementById("campo").value.trim();
+
+    if (texto === "") return;
+
+    // Se parecer um site (contém ponto e não tem espaço)
+    if (texto.includes(".") && !texto.includes(" ")) {
+        if (!texto.startsWith("http")) {
+            texto = "https://" + texto;
+        }
+        window.location.href = texto;
+    } 
+    else {
+        // Pesquisa no Google
+        window.location.href = "https://www.google.com/search?q=" + encodeURIComponent(texto);
+    }
+}
+</script>
+</body>
+</html>
